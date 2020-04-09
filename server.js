@@ -1,11 +1,13 @@
 const express = require("express");
 const db = require("./database.js");
+var cors = require("cors");
 
 // creates our server instance
 const server = express();
 
 // we'll talk about this later
 server.use(express.json());
+server.use(cors());
 
 server.get("/api/users", (req, res) => {
   const users = db.getUsers();
